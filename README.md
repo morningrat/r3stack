@@ -52,11 +52,18 @@
 - azk start -vv && azk logs --follow
 
 ## Execution of commands
+
 - 'azk shell r3stack -- //commands//'
+
 For example:
+
 - 'azk shell r3stack -- npm run start:dev'
 - 'azk shell r3stack -- npm run start'
 - 'azk shell r3stack -- npm run build'
+
+To completely rebuild the r3stack system while keeping the database:
+
+- 'azk restart r3stack --rebuild'
 
 #### Client-side development
 - `azk shell r3stack -- npm run start:dev`
