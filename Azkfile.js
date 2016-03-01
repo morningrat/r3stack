@@ -39,13 +39,6 @@ systems({
       GRAPHQL_HOST: "#{system.name}.#{azk.default_domain}"
     },
   },
-  other: {
-    extends: "r3stack",
-    envs: {
-      NODE_ENV: "production",
-      GRAPHQL_HOST: "#{system.name}.#{azk.default_domain}"
-    },
-  },
 
   rethinkdb: {
     image: { docker: "rethinkdb" },
