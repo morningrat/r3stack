@@ -48,7 +48,10 @@
 - cd r3stack
 - azk start
 
-###### If you like to watch / something doesnt work
+* Please note that this process can take a while * 
+  If you need to know whats going on instead of patiently waiting for provisioning to finish silently, use the command below.
+  This is also very useful for troubleshooting when something doesn't work:
+  
 - azk start -vv && azk logs --follow
 
 ## Execution of commands
