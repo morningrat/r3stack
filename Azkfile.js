@@ -12,7 +12,7 @@ systems({
     ],
     workdir: "/azk/#{manifest.dir}",
     shell: "/bin/bash",
-    command: ["npm", "run", "start"],
+    command: ["npm", "run", "prod"],
     wait: {"retry": 2, "timeout": 100000},
     mounts: {
       '/azk/#{manifest.dir}': sync("."),
