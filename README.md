@@ -1,8 +1,7 @@
 # [R3stack](http://r3stack.com) - Get that shit done!
+<img src="https://raw.githubusercontent.com/r3stack/r3stack/master/r3stack.png" width="800"> 
 ##### Whether you want to learn or quickly start your project - R3stack allows you to dive right in! 
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-
-<img src="https://raw.githubusercontent.com/r3stack/r3stack/master/r3stack.png" width="600">
 
 | Problem           | Solution                                                                 | Result                                                              |
 |-------------------|--------------------------------------------------------------------------|---------------------------------------------------------------------|
@@ -173,10 +172,16 @@ When the note is dropped to its new location, the change is persisted.
  - Added Azk.io orchestrate development environments
 
 # Acknowledgments
->“Coming together is a beginning. Keeping together is progress. Working together is success.”
-- Henry Ford
+
+##### This project, as well as the group behind it, is dedicated in memory of [__Aaron Swartz__](http://www.rememberaaronsw.com/memories/).
+<img src="https://raw.githubusercontent.com/r3stack/r3stack/master/aaron_swartz.png" width="800">
+>“With enough of us, around the world, we’ll not just send a strong message opposing the privatization of knowledge — we’ll make it a thing of the past. Will you join us?”
+- Aaron Swartz
 
 ##### Huge Thanks go to all the fantastic people that made all of this possible, especially:
+
+
+
 - [__Matt Krick__](https://github.com/mattkrick) for making Meatier and putting up with my never ending stream of questions and crazy ideas, 
 - [__Jonathan Gros-Dubois__](https://github.com/jondubois) for making SocketCluster and being the voice of reason to my own madness, 
 - [__Julio Makdisse Saito__](https://github.com/saitodisse), [__Felipe Arenales Santos__](https://github.com/fearenales), [__Gullit Miranda__](https://github.com/gullitmiranda) and the rest of the amazing [__Azk.io team__](https://github.com/azukiapp) for all their hard work and support!

@@ -12,7 +12,7 @@ systems({
     ],
     workdir: "/azk/#{manifest.dir}",
     shell: "/bin/bash",
-    command: ["npm", "run", "prod"],
+    command: ["npm", "run", "dev"],
     wait: {"retry": 2, "timeout": 100000},
     mounts: {
       '/azk/#{manifest.dir}': sync("."),
@@ -36,7 +36,9 @@ systems({
       // if you're setting it in a .env file
       NODE_ENV: "development",
       PORT: "3000",
-      GRAPHQL_HOST: "#{system.name}.#{azk.default_domain}"
+      GRAPHQL_HOST: "#{system.name}.#{azk.default_domain}",
+      // GRAPHQL_HOST: '#{net.host}',
+      // GRAPHQL_PORT: '#{net.port.data}',
     },
   },
 

@@ -8,8 +8,8 @@
     "npm": "^3.0.0"
   },
   "scripts": {
-    "postinstall":  "npm run reset",
-    "reset":        "rimraf build && concurrently \"npm run build:db\" \"npm run build:client\" \"npm run build:server\"",
+    "postinstall":  "rimraf build && concurrently \"npm run build:db\" \"npm run build:client\" \"npm run build:server\"",
+    "reset":        "npm run postinstall",
     "start":        "node ./src/server/server.babel.js",
     "dev":          "NODE_ENV=development npm start",
     "prod":         "NODE_ENV=production npm start",

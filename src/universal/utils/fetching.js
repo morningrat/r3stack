@@ -42,13 +42,13 @@ export const getClientError = errors => {
   if (!errors) return;
   const error = errors[0].message;
   return (error.indexOf('{"_error"') === -1) ? {_error: 'Server query error'} : JSON.parse(error);
-}
+};
 
 export const prepareGraphQLParams = graphParams => {
   // compress
   graphParams.query = graphParams.query.replace(/\s/g, '');
   return JSON.stringify(graphParams);
-}
+};
 
 export const fetchGraphQL = async (graphParams) => {
   const serializedParams = prepareGraphQLParams(graphParams);
@@ -64,4 +64,4 @@ export const fetchGraphQL = async (graphParams) => {
   const resJSON = await res.json();
   const {data, errors} = resJSON;
   return {data, error: getClientError(errors)}
-}
+};
