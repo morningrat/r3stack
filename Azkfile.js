@@ -44,15 +44,15 @@ systems({
     image: { docker: "rethinkdb" },
     // If you need to expose and bind the rethinkdb ports outside of the docker
     // enable the docker_extra setting below
-    docker_extra: {
-      HostConfig: {
-        "PortBindings": {
-          "8080/tcp": [{ "HostPort": "8080" }],
-          "28015/tcp": [{ "HostPort": "28015" }],
-          "29015/tcp": [{ "HostPort": "29015" }]
-        },
-      },
-    },
+    // docker_extra: {
+    //   HostConfig: {
+    //     "PortBindings": {
+    //       "8080/tcp": [{ "HostPort": "8080" }],
+    //       "28015/tcp": [{ "HostPort": "28015" }],
+    //       "29015/tcp": [{ "HostPort": "29015" }]
+    //     },
+    //   },
+    // },
     shell: '/bin/bash',
     scalable: false,
     command: "rethinkdb --bind all --direct-io --cache-size 2000 --server-name rethinkdb --directory ./rethinkdb --canonical-address rethinkdb.dev.azk.io",

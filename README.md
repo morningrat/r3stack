@@ -105,63 +105,6 @@ Once these conditions are meet you can execute the deployment command: `azk shel
 After the first deployment is completed, all consecutive deployments can be done either via 'git push': `git push azk_deploy master`
 or continuing via 'azk shell deploy': `azk shell deploy` which is more robust (it performs droplet configuration verification) albeit it takes a little bit longer.
 
-* It's possible that the precess might not go exactly as planned, but fear not, should something odd happen, like this:
-
-
-```
-remote: azk: Error: HTTP code is 500 which indicates error: server error - failed to create endpoint dev.azk.io_type.daemon_mid.c5363ad0b9_sys.rethinkdb_seq.1_uid.7334c800df on network bridge: Bind for 172.17.0.1:29015 failed: port is already allocated
-remote:
-remote: azk:     at /usr/lib/azk/node_modules/dockerode/node_modules/docker-modem/lib/modem.js:218:17
-remote: azk:     at getCause (/usr/lib/azk/node_modules/dockerode/node_modules/docker-modem/lib/modem.js:246:7)
-remote: azk:     at [object Object].Modem.buildPayload (/usr/lib/azk/node_modules/dockerode/node_modules/docker-modem/lib/modem.js:217:5)
-remote: azk:     at IncomingMessage.<anonymous> (/usr/lib/azk/node_modules/dockerode/node_modules/docker-modem/lib/modem.js:193:14)
-remote: azk:     at IncomingMessage.emit (events.js:117:20)
-remote: azk:     at _stream_readable.js:944:16
-remote: azk:     at process._tickCallback (node.js:448:13)
-remote: azk: Sorry, an error has occurred.
-remote: azk: A crash report about this error will be sent to azk team in order to make azk better.
-remote: azk: Sending bug report to Azuki...
-remote: azk: Bug report was sent. Thanks.
-To ssh://git@45.55.27.195:22/home/git/94b279a.git
- * [new branch]      master -> master
-
-App successfully deployed at http://r3stack.com (45.55.27.195)
-```
-Do this:
->azk deploy ssh
-
-It will log you onto your server through azk agent and and when you use `ls` command you'll notice few directories, such as for example:
-```
-94b279a  94b279a.git  bin
-```
-Go into the one without .git, then enter 'azk status' and you should see something like this:
-```
-┌───┬───────────┬───────────┬──────────────────────┬─────────────────┬─────────────┐
-│   │ System    │ Instances │ Hostname/url         │ Instances-Ports │ Provisioned │
-├───┼───────────┼───────────┼──────────────────────┼─────────────────┼─────────────┤
-│ − │ deploy    │ 0         │ dev.azk.io           │ -               │ -           │
-├───┼───────────┼───────────┼──────────────────────┼─────────────────┼─────────────┤
-│ ↓ │ rethinkdb │ 0         │ rethinkdb.dev.azk.io │ -               │ -           │
-├───┼───────────┼───────────┼──────────────────────┼─────────────────┼─────────────┤
-│ ↓ │ r3stack   │ 0         │ r3stack.com          │ -               │ -           │
-└───┴───────────┴───────────┴──────────────────────┴─────────────────┴─────────────┘
-```
-As you can see, the deployment did not finish in its entirety, so we have to resume it by executing the `azk restart` command.
-This should be the last step that you might have to take to deploy your app. Once it's completed you'll know your app is up when:
-```
-┌───┬───────────┬───────────┬─────────────────────────────┬───────────────────────────┬───────────────────┐
-│   │ System    │ Instances │ Hostname/url                │ Instances-Ports           │ Provisioned       │
-├───┼───────────┼───────────┼─────────────────────────────┼───────────────────────────┼───────────────────┤
-│ − │ deploy    │ 0         │ dev.azk.io                  │ -                         │ -                 │
-├───┼───────────┼───────────┼─────────────────────────────┼───────────────────────────┼───────────────────┤
-│ ↑ │ rethinkdb │ 1         │ http://rethinkdb.dev.azk.io │ 1-http:8080, 1-data:28015 │ -                 │
-│   │           │           │                             │ 1-cluster:29015           │                   │
-├───┼───────────┼───────────┼─────────────────────────────┼───────────────────────────┼───────────────────┤
-│ ↑ │ r3stack   │ 1         │ http://r3stack.com          │ 1-http:32768              │ a few seconds ago │
-└───┴───────────┴───────────┴─────────────────────────────┴───────────────────────────┴───────────────────┘
-```
-
-
 ##Webpack configs
 ####Development config
 When the page is opened, a basic HTML layout is sent to the client along with a stringified redux store and a request for the common chunk of the JS.
