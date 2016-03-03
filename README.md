@@ -78,7 +78,7 @@ Rebuilds the client code in-memory & uses hot module reload so you can develop m
 - http://r3stack.dev.azk.io
 - If you edit any client or universal files, run `azk shell r3stack -- npm run build` to rebuild & serve the bundle
 
-This mode is great because you can make changes to the server ***without having to recompile the client code***
+This mode is great because you can make changes to the server ***without having to recompile the client code.***
 That means you only wait for the server to restart! GAME CHANGER!
 
 ##Database development
